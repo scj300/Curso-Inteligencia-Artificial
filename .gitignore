@@ -1,0 +1,6 @@
+# Ignore Directories
+ia-course-master/
+
+
+# Ignore Files
+.DS_Store
