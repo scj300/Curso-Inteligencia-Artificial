@@ -66,7 +66,6 @@ class QLearner(object):
 
 
 
-
 ## Método para entrenar a nuestro agente
 def train(agent, environment):
 
