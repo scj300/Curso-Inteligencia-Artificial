@@ -23,6 +23,7 @@ NUM_DISCRETE_BINS = 30
 
 
 class QLearner(object):
+    
     def __init__(self, environment):
         self.obs_shape = environment.observation_space.shape
         self.obs_high = environment.observation_space.high
@@ -38,7 +39,7 @@ class QLearner(object):
 
 
     def discretize(self, obs):
-        return tuple(((obs-self.obs_low)/self.bin_width).astype(int))
+        return tuple(((obs - self.obs_low) / self.bin_width).astype(int))
 
 
     def get_action(self, obs):
@@ -60,7 +61,7 @@ class QLearner(object):
     def learn(self, obs, action, reward, next_obs):
         discrete_obs = self.discretize(obs)
         discrete_next_obs = self.discretize(next_obs)
-        self.Q[discrete_obs][action] += self.alpha*(reward + self.gamma * np.max(self.Q[discrete_next_obs]) - self.Q[discrete_obs][action])
+        self.Q[discrete_obs][action] += self.alpha * (reward + self.gamma * np.max(self.Q[discrete_next_obs]) - self.Q[discrete_obs][action])
 
 
 
